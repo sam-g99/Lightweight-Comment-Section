@@ -48,8 +48,13 @@ class Comment {
         this.author = author;
         this.content = content;
         this.isReply = isReply;
+    }
 
-        this.element = `<div><strong>${this.author}</strong></div><div>${this.content}</div><br>`;
+    createElement() {
+        const comment = `<div><strong>${this.author}</strong></div><div id="comment"></div><br>`;
+        const commentFragment = document.createRange().createContextualFragment(comment);
+        commentFragment.getElementById('comment').textContent = this.content;
+        return commentFragment;
     }
 }
 
@@ -61,6 +66,7 @@ comments.push(new Comment('Jane', 'I love tacos', false));
 const createPageCommentsArea = () => {
     const pageCommentArea = document.createElement('div');
     pageCommentArea.setAttribute('class', 'page-comments');
+    pageCommentArea.setAttribute('id', 'pageCommentArea');
 
     for(let c of comments){
         pageCommentArea.insertAdjacentHTML('beforeend', c.element);
@@ -76,6 +82,14 @@ const createPageCommentsArea = () => {
     commentRoot.appendChild(rootFragment);
 })()
 
+// Action Functions
+const postComment = (e) => {
+    const content = document.getElementById('commentBox').value;
+    const comment = new Comment('Joe', content, false);
+    comments.push(comment);
+    document.getElementById('pageCommentArea').appendChild(comment.createElement());
+}
+
 
 // Adding Events To Textarea
 const commentBox = document.getElementById('commentBox');
@@ -89,9 +103,7 @@ commentBox.addEventListener('blur', () => {
     console.log('Comment box blurred.');
 })
 
-commentButton.addEventListener('mouseup', () => {
-    console.log('Button clicked.')
-})
+commentButton.addEventListener('mouseup', postComment, false);
 
 // Show how many characters the user has left
 const charsLeft = (e) => {
