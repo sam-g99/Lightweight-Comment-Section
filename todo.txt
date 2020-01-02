@@ -1,1 +1,3 @@
 Simplify Code
+Add pollyfils
+split js and combine with webpack
