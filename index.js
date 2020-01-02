@@ -35,12 +35,12 @@ const createCommentBoxArea = () => {
 
     // Add comment box area elements
     for (let el of elements) {
-        commentBoxArea.insertAdjacentHTML('beforeend', el.trim());
+        commentBoxArea.insertAdjacentHTML('beforeend', el);
     }
     
     rootFragment.appendChild(commentBoxArea);
-    console.log(rootFragment);
 }
+
 
 // Comment Logic
 class Comment {
@@ -48,14 +48,31 @@ class Comment {
         this.author = author;
         this.content = content;
         this.isReply = isReply;
+
+        this.element = `<div><strong>${this.author}</strong></div><div>${this.content}</div><br>`;
     }
 }
 
-console.log(new Comment('Bob', 'I hate pickles', false));
+const comments = [];
+
+comments.push(new Comment('Bob', 'I hate pickles', false));
+comments.push(new Comment('Jane', 'I love tacos', false));
+
+const createPageCommentsArea = () => {
+    const pageCommentArea = document.createElement('div');
+    pageCommentArea.setAttribute('class', 'page-comments');
+
+    for(let c of comments){
+        pageCommentArea.insertAdjacentHTML('beforeend', c.element);
+    }
+
+    rootFragment.appendChild(pageCommentArea);
+}
 
 // Render Comment Section
 (function render() {
     createCommentBoxArea();
+    createPageCommentsArea();
     commentRoot.appendChild(rootFragment);
 })()
 
@@ -76,6 +93,7 @@ commentButton.addEventListener('mouseup', () => {
     console.log('Button clicked.')
 })
 
+// Show how many characters the user has left
 const charsLeft = (e) => {
     const textarea = e.target;
     const charsLeft =  ta.maxLength - textarea.value.length ;
@@ -83,6 +101,6 @@ const charsLeft = (e) => {
 }
 
 if(ta.maxLength){
-    commentBox.addEventListener('keyup', charsLeft, false );
     commentBox.addEventListener('keydown', charsLeft, false );
+    commentBox.addEventListener('keyup', charsLeft, false );
 }

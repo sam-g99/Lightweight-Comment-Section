@@ -16,6 +16,11 @@ body{
     padding-top: 30px;
 }
 
+.textarea-container{
+    display: flex;
+    flex-flow: column;
+}
+
 #commentRoot {
     max-width: 600px;
     width: 100%;
@@ -36,7 +41,7 @@ body{
     outline: none;
     padding:10px;
     cursor: pointer;
-    float: right;
+    margin-left: auto;
     border-radius: 3px;
     box-shadow: 0px 1px 2px #ccc;
 }
