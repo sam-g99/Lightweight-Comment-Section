@@ -1,46 +1,14 @@
 
 import './main.css';
 
-const ta = {
-  placeholder: 'Type here to comment...',
-  maxLength: 500,
-};
+// eslint-disable-next-line import/named
+import { ta } from './settings';
+
+import { rootFragment } from './components/CommentTextArea';
+
 
 // Creating Elements
 const commentRoot = document.getElementById('commentRoot');
-const rootFragment = new DocumentFragment();
-
-const createTextarea = () => {
-  const charsLeftDisplay = (ta.maxLength) ? `<div id="charsLeftDisplay" " class="characters-left">${ta.maxLength}</div>` : '';
-
-  return `
-        <div class="comment-box-container">
-            <textarea id="commentBox" maxlength="${ta.maxLength}" placeholder="${ta.placeholder}"></textarea>
-            ${charsLeftDisplay}
-        </div>
-    `;
-};
-
-const createCommentButton = () => '<button id="commentButton"> Comment </button>';
-
-const createCommentBoxArea = () => {
-  const commentBoxArea = document.createElement('div');
-  commentBoxArea.setAttribute('class', 'textarea-container');
-
-  const textarea = createTextarea(ta.placeholder, ta.maxLength);
-  const button = createCommentButton();
-
-  const elements = [textarea, button];
-
-  // Add comment box area elements
-  elements.forEach((el) => {
-    commentBoxArea.insertAdjacentHTML('beforeend', el);
-  });
-
-
-  rootFragment.appendChild(commentBoxArea);
-};
-
 
 // Comment Logic
 class Comment {
@@ -77,7 +45,6 @@ const createPageCommentsArea = () => {
 
 // Render Comment Section
 (function render() {
-  createCommentBoxArea();
   createPageCommentsArea();
   commentRoot.appendChild(rootFragment);
 }());
