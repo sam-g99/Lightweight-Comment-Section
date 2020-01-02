@@ -69,7 +69,7 @@ const createPageCommentsArea = () => {
     pageCommentArea.setAttribute('id', 'pageCommentArea');
 
     for(let c of comments){
-        pageCommentArea.insertAdjacentHTML('beforeend', c.element);
+        pageCommentArea.appendChild(c.createElement());
     }
 
     rootFragment.appendChild(pageCommentArea);
