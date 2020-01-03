@@ -12,7 +12,7 @@ const createTextarea = () => {
 };
 
 // Creating Elements
-const rootFragment = new DocumentFragment();
+const commentBoxFragment = new DocumentFragment();
 
 const createCommentButton = () => '<button id="commentButton"> Comment </button>';
 
@@ -31,9 +31,21 @@ const createCommentBoxArea = () => {
   });
 
 
-  rootFragment.appendChild(commentBoxArea);
+  commentBoxFragment.appendChild(commentBoxArea);
 };
 
 createCommentBoxArea();
 
-export { rootFragment };
+// Actions
+const postComment = () => {
+  const content = document.getElementById('commentBox').value;
+  const comment = new Comment('Joe', content, false);
+  comments.push(comment);
+  document.getElementById('pageCommentArea').appendChild(comment.createElement());
+};
+
+const commentBoxEvents = ['click', postComment];
+export {
+  commentBoxFragment,
+  commentBoxEvents,
+};

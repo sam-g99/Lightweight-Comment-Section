@@ -3,9 +3,8 @@ import './main.css';
 // eslint-disable-next-line import/named
 import { ta } from './settings';
 
-import { rootFragment } from './components/CommentTextArea';
-import { commentAreaFragment, comments, Comment } from './components/PostedCommentsArea';
-
+import { commentBoxFragment } from './components/CommentTextArea';
+import { commentsAreaFragment, comments, Comment } from './components/PostedCommentsArea';
 
 // Creating Elements
 const fragment = new DocumentFragment();
@@ -13,8 +12,8 @@ const commentRoot = document.getElementById('commentRoot');
 
 // Render Comment Section
 (function render() {
-  fragment.appendChild(rootFragment);
-  fragment.appendChild(commentAreaFragment);
+  fragment.appendChild(commentBoxFragment);
+  fragment.appendChild(commentsAreaFragment);
   commentRoot.appendChild(fragment);
 }());
 

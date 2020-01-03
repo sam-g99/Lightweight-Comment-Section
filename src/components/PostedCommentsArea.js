@@ -1,5 +1,5 @@
 // Comment Logic
-const commentAreaFragment = new DocumentFragment();
+const commentsAreaFragment = new DocumentFragment();
 
 class Comment {
   constructor(author, content, isReply) {
@@ -30,6 +30,10 @@ comments.forEach((c) => {
   pageCommentArea.appendChild(c.createElement());
 });
 
-commentAreaFragment.appendChild(pageCommentArea);
+commentsAreaFragment.appendChild(pageCommentArea);
 
-export { commentAreaFragment, comments, Comment };
+export {
+  commentsAreaFragment,
+  comments,
+  Comment,
+};
