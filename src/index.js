@@ -3,7 +3,7 @@ import './main.css';
 // eslint-disable-next-line import/named
 import { ta } from './settings';
 
-import { commentBoxFragment } from './components/CommentTextArea';
+import { commentBoxFragment, commentBoxEvents } from './components/CommentTextArea';
 import { commentsAreaFragment, comments, Comment } from './components/PostedCommentsArea';
 
 // Creating Elements
@@ -18,13 +18,6 @@ const commentRoot = document.getElementById('commentRoot');
 }());
 
 // Action Functions
-const postComment = () => {
-  const content = document.getElementById('commentBox').value;
-  const comment = new Comment('Joe', content, false);
-  comments.push(comment);
-  document.getElementById('pageCommentArea').appendChild(comment.createElement());
-};
-
 
 // Adding Events To Textarea
 const commentBox = document.getElementById('commentBox');
@@ -38,7 +31,7 @@ commentBox.addEventListener('blur', () => {
   console.log('Comment box blurred.');
 });
 
-commentButton.addEventListener('mouseup', postComment, false);
+commentButton.addEventListener('mouseup', commentBoxEvents[0].fn, false);
 
 // Show how many characters the user has left
 const charsLeft = (e) => {

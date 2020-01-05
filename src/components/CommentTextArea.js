@@ -1,4 +1,5 @@
 import { ta } from '../settings';
+import { Comment } from './PostedCommentsArea';
 
 const createTextarea = () => {
   const charsLeftDisplay = (ta.maxLength) ? `<div id="charsLeftDisplay" " class="characters-left">${ta.maxLength}</div>` : '';
@@ -37,14 +38,14 @@ const createCommentBoxArea = () => {
 createCommentBoxArea();
 
 // Actions
-const postComment = () => {
+const postComment = (comments) => {
   const content = document.getElementById('commentBox').value;
   const comment = new Comment('Joe', content, false);
-  comments.push(comment);
+  // comments.push(comment);
   document.getElementById('pageCommentArea').appendChild(comment.createElement());
 };
 
-const commentBoxEvents = ['click', postComment];
+const commentBoxEvents = [{ type: 'click', fn: postComment }];
 export {
   commentBoxFragment,
   commentBoxEvents,
