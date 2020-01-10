@@ -2,6 +2,9 @@
 const commentsAreaFragment = new DocumentFragment();
 
 class Comment {
+  author: string;
+  content: string;
+  isReply: boolean;
   constructor(author, content, isReply) {
     this.author = author;
     this.content = content;

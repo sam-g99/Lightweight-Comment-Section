@@ -2,13 +2,15 @@ const path = require('path');
 
 module.exports = {
   mode: 'development',
-  entry: './src/index.js',
+  entry: './src/index.ts',
   watch: true,
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
   },
-
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js', '.jsx'],
+  },
   module: {
     rules: [
       {
@@ -22,12 +24,16 @@ module.exports = {
       },
 
       {
-        test: /\.m?js$/,
+        test: /\.(js|jsx|tsx|ts)$/,
         exclude: /(node_modules|bower_components)/,
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env'],
+            presets: [
+              '@babel/preset-env',
+              '@babel/preset-typescript',
+            ],
+
           },
         },
       },

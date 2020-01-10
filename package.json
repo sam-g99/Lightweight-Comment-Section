@@ -21,6 +21,7 @@
   "devDependencies": {
     "@babel/core": "^7.7.7",
     "@babel/preset-env": "^7.7.7",
+    "@babel/preset-typescript": "^7.7.7",
     "babel-loader": "^8.0.6",
     "css-loader": "^3.4.0",
     "cssnano": "^4.1.10",
@@ -34,9 +35,8 @@
     "prettier": "^1.19.1",
     "style-loader": "^1.1.2",
     "webpack": "^4.41.5",
-    "webpack-cli": "^3.3.10"
-  },
-  "dependencies": {
-    "autoprefixer": "^9.7.3"
+    "webpack-cli": "^3.3.10",
+    "autoprefixer": "^9.7.3",
+    "typescript": "^3.7.4"
   }
 }

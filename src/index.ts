@@ -37,7 +37,7 @@ commentButton.addEventListener('mouseup', commentBoxEvents[0].fn, false);
 const charsLeft = (e) => {
   const textarea = e.target;
   const charsLeftNum = ta.maxLength - textarea.value.length;
-  document.getElementById('charsLeftDisplay').textContent = charsLeftNum;
+  document.getElementById('charsLeftDisplay').textContent = charsLeftNum.toString(2);
 };
 
 if (ta.maxLength) {

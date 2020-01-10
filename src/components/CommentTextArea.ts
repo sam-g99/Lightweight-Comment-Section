@@ -21,7 +21,7 @@ const createCommentBoxArea = () => {
   const commentBoxArea = document.createElement('div');
   commentBoxArea.setAttribute('class', 'textarea-container');
 
-  const textarea = createTextarea(ta.placeholder, ta.maxLength);
+  const textarea = createTextarea();
   const button = createCommentButton();
 
   const elements = [textarea, button];
@@ -39,7 +39,7 @@ createCommentBoxArea();
 
 // Actions
 const postComment = (comments) => {
-  const content = document.getElementById('commentBox').value;
+  const content = (<HTMLInputElement>document.getElementById('commentBox')).value;
   const comment = new Comment('Joe', content, false);
   // comments.push(comment);
   document.getElementById('pageCommentArea').appendChild(comment.createElement());
