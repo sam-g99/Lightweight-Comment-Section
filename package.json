@@ -38,9 +38,7 @@
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10",
     "autoprefixer": "^9.7.3",
-    "typescript": "^3.7.4"
-  },
-  "dependencies": {
+    "typescript": "^3.7.4",
     "webpack-dev-server": "^3.10.1"
   }
 }
