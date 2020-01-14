@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
-    "serve": "webpack-dev-server --inline --colors --watch --display-error-details --display-cached  --port 3001 --hot"
+    "serve": "webpack-dev-server --inline --colors --watch --display-error-details --display-cached  --hot"
   },
   "repository": {
     "type": "git",

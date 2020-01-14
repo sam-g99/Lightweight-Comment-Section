@@ -14,5 +14,7 @@ Start live server
 
 Look for `Project is running at http://localhost:{PORT}/` in terminal
 
+Should be on port 8000
+
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
