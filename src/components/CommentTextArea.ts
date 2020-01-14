@@ -2,6 +2,7 @@ import { ta } from '../settings';
 import { Comment } from './PostedCommentsArea';
 
 const createTextarea = () => {
+  // Don't display max length if no max length is set
   const charsLeftDisplay = (ta.maxLength) ? `<div id="charsLeftDisplay" " class="characters-left">${ta.maxLength}</div>` : '';
 
   return `
