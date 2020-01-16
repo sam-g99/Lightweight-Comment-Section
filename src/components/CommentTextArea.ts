@@ -47,6 +47,7 @@ const postComment = (comments) => {
 };
 
 const commentBoxEvents = [{ type: 'click', fn: postComment }];
+
 export {
   commentBoxFragment,
   commentBoxEvents,
