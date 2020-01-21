@@ -6,11 +6,11 @@ const pageCommentArea = document.createElement('div');
 pageCommentArea.setAttribute('class', 'page-comments');
 pageCommentArea.setAttribute('id', 'pageCommentArea');
 
+let amountOfComments = 0;
 class Comment {
   author: string;
   content: string;
   isReply: boolean;
-  element: DocumentFragment;
     
   constructor(author, content, isReply) {
     this.author = author;
@@ -20,9 +20,11 @@ class Comment {
   }
 
   createElement() {
-    const comment = `<div><strong>${this.author}</strong></div><div id="comment"></div><br>`;
+    const id = `comment${amountOfComments}`;
+    const comment = `<div><strong>${this.author}</strong></div><div id="${id}"></div><br>`;
+    amountOfComments+=1;
     const commentFragment = document.createRange().createContextualFragment(comment);
-    commentFragment.getElementById('comment').textContent = this.content;
+    commentFragment.getElementById(id).textContent = this.content;
     pageCommentArea.appendChild(commentFragment);
   }
 }
