@@ -41,9 +41,7 @@ createCommentBoxArea();
 // Actions
 const postComment = (comments) => {
   const content = (<HTMLInputElement>document.getElementById('commentBox')).value;
-  const comment = new Comment('Joe', content, false);
-  // comments.push(comment);
-  document.getElementById('pageCommentArea').appendChild(comment.createElement());
+  new Comment('Joe', content, false);
 };
 
 const commentBoxEvents = [{ type: 'click', fn: postComment }];

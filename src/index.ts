@@ -4,7 +4,7 @@ import './main.css';
 import { ta } from './settings';
 
 import { commentBoxFragment, commentBoxEvents } from './components/CommentTextArea';
-import { commentsAreaFragment, comments, Comment } from './components/PostedCommentsArea';
+import { commentsAreaFragment } from './components/PostedCommentsArea';
 
 // Creating Elements
 const fragment = new DocumentFragment();
