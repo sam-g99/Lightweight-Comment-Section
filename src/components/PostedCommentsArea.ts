@@ -6,7 +6,9 @@ const pageCommentArea = document.createElement('div');
 pageCommentArea.setAttribute('class', 'page-comments');
 pageCommentArea.setAttribute('id', 'pageCommentArea');
 
+// Keep track and give unique ids
 let amountOfComments = 0;
+
 class Comment {
   author: string;
   content: string;

@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 import './main.css';
 
 // eslint-disable-next-line import/named

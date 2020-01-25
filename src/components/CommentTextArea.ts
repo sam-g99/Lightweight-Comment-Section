@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 import { ta } from '../settings';
 import { Comment } from './PostedCommentsArea';
 
@@ -13,6 +14,8 @@ const createTextarea = () => {
       `;
 };
 
+let commentBox;
+let charsLeftDisplay;
 // Creating Elements
 const commentBoxFragment = new DocumentFragment();
 
@@ -21,7 +24,6 @@ const createCommentButton = () => '<button id="commentButton"> Comment </button>
 const createCommentBoxArea = () => {
   const commentBoxArea = document.createElement('div');
   commentBoxArea.setAttribute('class', 'textarea-container');
-
   const textarea = createTextarea();
   const button = createCommentButton();
 
@@ -32,15 +34,29 @@ const createCommentBoxArea = () => {
     commentBoxArea.insertAdjacentHTML('beforeend', el);
   });
 
-
+  commentBox = commentBoxArea.querySelector('#commentBox');
+  if (ta.maxLength) {
+    charsLeftDisplay = commentBoxArea.querySelector('#charsLeftDisplay');
+  }
   commentBoxFragment.appendChild(commentBoxArea);
 };
 
 createCommentBoxArea();
 
+
+// eslint-disable-next-line no-param-reassign
+const clearTextAreaValue = (t) => { t.value = ''; };
+
 // Actions
-const postComment = (comments) => {
-  const content = (<HTMLInputElement>document.getElementById('commentBox')).value;
+const postComment = () => {
+  const content = commentBox.value;
+  clearTextAreaValue(commentBox);
+
+  if (charsLeftDisplay) {
+    charsLeftDisplay.textContent = ta.maxLength;
+  }
+
+  // eslint-disable-next-line no-new
   new Comment('Joe', content, false);
 };
 
