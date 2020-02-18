@@ -2,9 +2,9 @@
 import './main.css';
 
 // eslint-disable-next-line import/named
-import { ta } from './settings';
+import { ta } from './settings'; // just some default settings will rename it
 
-import { commentBoxFragment, commentBoxEvents } from './components/CommentTextArea';
+import { commentBoxFragment, postComment } from './components/CommentTextArea';
 import { commentsAreaFragment } from './components/PostedCommentsArea';
 
 // Creating Elements
@@ -18,7 +18,7 @@ const commentRoot = document.getElementById('commentRoot');
   commentRoot.appendChild(fragment);
 }());
 
-// Action Functions
+// Action Functions after all the initial data is rendered
 
 // Adding Events To Textarea
 const commentBox = document.getElementById('commentBox');
@@ -32,7 +32,8 @@ commentBox.addEventListener('blur', () => {
   console.log('Comment box blurred.');
 });
 
-commentButton.addEventListener('mouseup', commentBoxEvents[0].fn, false);
+// Post Button
+commentButton.addEventListener('mouseup', postComment, false);
 
 // Show how many characters the user has left
 const charsLeft = (e) => {
@@ -41,6 +42,7 @@ const charsLeft = (e) => {
   document.getElementById('charsLeftDisplay').textContent = charsLeftNum.toString();
 };
 
+// Events if max length is activated
 if (ta.maxLength) {
   commentBox.addEventListener('keydown', charsLeft, false);
   commentBox.addEventListener('keyup', charsLeft, false);

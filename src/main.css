@@ -1,66 +1,84 @@
 :root {
-    --main-blue: #57a7f0;
+	--main-blue: #57a7f0;
 }
 
-*{
-    padding:0;
-    margin:0;
-    font-family: sans-serif;
-    box-sizing: border-box;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-kerning: auto;
+* {
+	padding: 0;
+	margin: 0;
+	font-family: sans-serif;
+	box-sizing: border-box;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-kerning: auto;
 }
 
 html {
-    -webkit-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
 }
 
-body{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 30px;
+body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: 30px;
 }
 
-.textarea-container{
-    display: flex;
-    flex-flow: column;
+.textarea-container {
+	display: flex;
+	flex-flow: column;
 }
 
 #commentRoot {
-    max-width: 600px;
-    width: 100%;
+	max-width: 600px;
+	width: 100%;
 }
 
 #commentRoot textarea {
-    color: #292929;
-    border: 1px solid #dadada;
-    outline: none;
-    resize: none;
-    font-family: sans-serif;
+	color: #292929;
+	border: 1px solid #dadada;
+	outline: none;
+	resize: none;
+	font-family: sans-serif;
 }
 
 #commentRoot button {
-    background: var(--main-blue);
-    border: none;
-    color:white;
-    outline: none;
-    padding:10px;
-    cursor: pointer;
-    margin-left: auto;
+	background: var(--main-blue);
+	border: none;
+	color: white;
+	outline: none;
+	padding: 10px;
+	cursor: pointer;
+	margin-left: auto;
     border-radius: 3px;
-    box-shadow: 0px 1px 2px #ccc;
+    font-size: 1.2em;
 }
 
-#commentRoot #commentBox{
-    font-size: 15px;
-    min-height: 100px;
-    padding: 8px;
-    width: 100%;
+#commentRoot #commentBox {
+	font-size: 1.2em;
+	min-height: 100px;
+	padding: 8px;
+	width: 100%;
+	border-radius: 5px;
 }
 
-#commentRoot #commentBox::placeholder{
-    color: #8E8E8E;
+#commentRoot #commentBox::placeholder {
+	color: #8e8e8e;
+}
+
+.page-comments {
+	font-size: 1.2em;
+}
+
+.comment-container{
+    display: flex;
+    flex-flow: column;
+    border: 1px solid rgb(230, 230, 230);
+    border-radius: 3px;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.comment-author{
+    align-self: flex-start;
 }

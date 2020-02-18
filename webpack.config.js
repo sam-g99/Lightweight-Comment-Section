@@ -21,11 +21,7 @@ module.exports = {
       {
         test: /\.css$/,
         exclude: /(node_modules|bower_components)/,
-        use: [
-          'style-loader',
-          'css-loader',
-          'postcss-loader',
-        ],
+        use: ['style-loader', 'css-loader', 'postcss-loader'],
       },
 
       {
@@ -38,7 +34,6 @@ module.exports = {
               '@babel/preset-env',
               '@babel/preset-typescript',
             ],
-
           },
         },
       },

@@ -16,6 +16,7 @@ const createTextarea = () => {
 
 let commentBox;
 let charsLeftDisplay;
+
 // Creating Elements
 const commentBoxFragment = new DocumentFragment();
 
@@ -50,6 +51,9 @@ const clearTextAreaValue = (t) => { t.value = ''; };
 // Actions
 const postComment = () => {
   const content = commentBox.value;
+
+  if (content.length === 0) return;
+
   clearTextAreaValue(commentBox);
 
   if (charsLeftDisplay) {
@@ -57,12 +61,11 @@ const postComment = () => {
   }
 
   // eslint-disable-next-line no-new
-  new Comment('Joe', content, false);
+  new Comment('Joe', content);
 };
 
-const commentBoxEvents = [{ type: 'click', fn: postComment }];
 
 export {
   commentBoxFragment,
-  commentBoxEvents,
+  postComment,
 };
