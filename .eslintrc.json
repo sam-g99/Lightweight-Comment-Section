@@ -9,6 +9,8 @@
   },
     "rules": {
       "no-console": "off",
-      "linebreak-style":"off"
+      "linebreak-style":"off",
+      "prefer-default-export": "off",
+      "func-names": "off"
     }
 }

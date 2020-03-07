@@ -1,11 +1,13 @@
 /* eslint-disable import/no-unresolved */
 import './main.css';
+import './methods';
 
 // eslint-disable-next-line import/named
-import { ta } from './settings'; // just some default settings will rename it
+import { settings } from './settings'; // just some default settings will rename it
 
 import { commentBoxFragment, postComment } from './components/CommentTextArea';
 import { commentsAreaFragment } from './components/PostedCommentsArea';
+
 
 // Creating Elements
 const fragment = new DocumentFragment();
@@ -38,12 +40,12 @@ commentButton.addEventListener('mouseup', postComment, false);
 // Show how many characters the user has left
 const charsLeft = (e) => {
   const textarea = e.target;
-  const charsLeftNum = ta.maxLength - textarea.value.length;
+  const charsLeftNum = settings.maxLength - textarea.value.length;
   document.getElementById('charsLeftDisplay').textContent = charsLeftNum.toString();
 };
 
 // Events if max length is activated
-if (ta.maxLength) {
+if (settings.maxLength) {
   commentBox.addEventListener('keydown', charsLeft, false);
   commentBox.addEventListener('keyup', charsLeft, false);
 }

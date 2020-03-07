@@ -1,14 +1,14 @@
 /* eslint-disable import/no-unresolved */
-import { ta } from '../settings';
+import { settings } from '../settings';
 import { Comment } from './PostedCommentsArea';
 
 const createTextarea = () => {
   // Don't display max length if no max length is set
-  const charsLeftDisplay = (ta.maxLength) ? `<div id="charsLeftDisplay" " class="characters-left">${ta.maxLength}</div>` : '';
+  const charsLeftDisplay = (settings.maxLength) ? `<div id="charsLeftDisplay" " class="characters-left">${settings.maxLength}</div>` : '';
 
   return `
           <div class="comment-box-container">
-              <textarea id="commentBox" maxlength="${ta.maxLength}" placeholder="${ta.placeholder}"></textarea>
+              <textarea id="commentBox" maxlength="${settings.maxLength}" placeholder="${settings.placeholder}"></textarea>
               ${charsLeftDisplay}
           </div>
       `;
@@ -36,7 +36,7 @@ const createCommentBoxArea = () => {
   });
 
   commentBox = commentBoxArea.querySelector('#commentBox');
-  if (ta.maxLength) {
+  if (settings.maxLength) {
     charsLeftDisplay = commentBoxArea.querySelector('#charsLeftDisplay');
   }
   commentBoxFragment.appendChild(commentBoxArea);
@@ -57,7 +57,7 @@ const postComment = () => {
   clearTextAreaValue(commentBox);
 
   if (charsLeftDisplay) {
-    charsLeftDisplay.textContent = ta.maxLength;
+    charsLeftDisplay.textContent = settings.maxLength;
   }
 
   // eslint-disable-next-line no-new
